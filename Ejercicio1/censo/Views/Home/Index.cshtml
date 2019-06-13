@@ -1,0 +1,52 @@
+﻿@model censo.Models.CensoModel;
+
+@{
+    ViewData["Title"] = "Principal";
+}
+
+<hr />
+
+<div class="fluid-container">
+    <form asp-action="Index" asp-controller="Home">
+        <div class="form-group">
+            <label asp-for="Opcion">¿Que equipo de futbol ganara la Liga?</label>
+            <select class="form-control col-sm-4" asp-for="Opcion">
+                <option value="-1" selected disabled>Seleccione una opción</option>
+                <option value="cruz">Cruz Azul</option>
+                <option value="america">America</option>
+                <option value="toluca">Toluca</option>
+                <option value="santos">Santos</option>
+            </select>
+        </div>
+        <button class="btn btn-outline-dark" type="submit">Enviar <span class="fa fa-paper-plane"></span></button>
+    </form>
+<hr />
+    <p>Resultados </p>
+    <div class="card">    
+        <div class="card-body">
+
+            <label>Cruz Azul</label>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: @ViewData["opc1"]%;" aria-valuenow="@ViewData["opc1"]" aria-valuemin="0" aria-valuemax="100">@ViewData["opc1"]%</div>
+            </div>
+            <br />
+
+            <label>America</label>
+            <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: @ViewData["opc2"]%;" aria-valuenow="@ViewData["opc2"]" aria-valuemin="0" aria-valuemax="100">@ViewData["opc2"]%</div>
+            </div>
+            <br />
+
+            <label>Toluca</label>
+            <div class="progress">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: @ViewData["opc3"]%;" aria-valuenow="@ViewData["opc3"]" aria-valuemin="0" aria-valuemax="100">@ViewData["opc3"]%</div>
+            </div>
+            <br />
+
+            <label>Santos</label>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: @ViewData["opc4"]%;" aria-valuenow="@ViewData["opc4"]" aria-valuemin="0" aria-valuemax="100">@ViewData["opc4"]%</div>
+            </div>
+        </div>
+    </div>
+</div>
